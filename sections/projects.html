@@ -14,7 +14,7 @@
             <span>SQL</span>
             <span>Excel</span>
         </div>
-        <button class="view-details-btn" onclick="showProjectDetails('sales-analytics')">View Details</button>
+        <button class="view-details-btn" onclick="showProjectDetailsAtClick(event, 'sales-analytics')">View Details</button>
     </div>
 
     <!-- Project 2 -->
@@ -30,7 +30,7 @@
             <span>Power Query</span>
             <span>Forecasting</span>
         </div>
-        <button class="view-details-btn" onclick="showProjectDetails('ecommerce-platform')">View Details</button>
+        <button class="view-details-btn" onclick="showProjectDetailsAtClick(event, 'ecommerce-platform')">View Details</button>
     </div>
 
     <!-- Project 3 -->
@@ -46,7 +46,7 @@
             <span>Predictive Analytics</span>
             <span>ETL</span>
         </div>
-        <button class="view-details-btn" onclick="showProjectDetails('inventory-system')">View Details</button>
+        <button class="view-details-btn" onclick="showProjectDetailsAtClick(event, 'inventory-system')">View Details</button>
     </div>
 
     <!-- Project 4 -->
@@ -62,7 +62,7 @@
             <span>Google Sheets</span>
             <span>Automation</span>
         </div>
-        <button class="view-details-btn" onclick="showProjectDetails('financial-suite')">View Details</button>
+        <button class="view-details-btn" onclick="showProjectDetailsAtClick(event, 'financial-suite')">View Details</button>
     </div>
 
     <!-- Project 5 -->
@@ -78,7 +78,7 @@
             <span>ROI Analysis</span>
             <span>Campaign Tracking</span>
         </div>
-        <button class="view-details-btn" onclick="showProjectDetails('marketing-tracker')">View Details</button>
+        <button class="view-details-btn" onclick="showProjectDetailsAtClick(event, 'marketing-tracker')">View Details</button>
     </div>
 
     <!-- Project 6 -->
@@ -94,14 +94,13 @@
             <span>Power BI</span>
             <span>Integration</span>
         </div>
-        <button class="view-details-btn" onclick="showProjectDetails('process-automation')">View Details</button>
+        <button class="view-details-btn" onclick="showProjectDetailsAtClick(event, 'process-automation')">View Details</button>
     </div>
 </div>
 
 <!-- Project Detail Modal -->
 <div id="projectModal" class="modal">
-    <div class="modal-content">
+    <div class="modal-content" id="modalContent">
         <span class="close" onclick="closeModal()">&times;</span>
-        <div id="modalContent"></div>
     </div>
 </div>
