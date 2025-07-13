@@ -1,4 +1,4 @@
-/* Projects Grid - Compact 3x2 Layout */
+/* Projects Grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -36,26 +36,11 @@
     transition: all 0.3s ease;
 }
 
-.project-icon.sales {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
-.project-icon.ecommerce {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
-.project-icon.inventory {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
-.project-icon.financial {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
-.project-icon.marketing {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
+.project-icon.sales,
+.project-icon.ecommerce,
+.project-icon.inventory,
+.project-icon.financial,
+.project-icon.marketing,
 .project-icon.automation {
     background: linear-gradient(135deg, #667eea, #764ba2);
 }
@@ -137,7 +122,7 @@
     box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
 }
 
-/* Modal Styles */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -185,7 +170,7 @@
     transform: scale(1.1);
 }
 
-/* Modal Content Styles */
+/* Modal Content */
 .modal-header {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
@@ -467,11 +452,10 @@
     opacity: 0.95;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 1200px) {
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
     }
     
     .process-steps {
@@ -486,11 +470,6 @@
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .project-card {
-        padding: 25px;
     }
     
     .project-card h3 {
@@ -509,7 +488,6 @@
     
     .two-column {
         grid-template-columns: 1fr;
-        gap: 15px;
     }
     
     .process-steps {
@@ -527,23 +505,5 @@
     
     .modal-body {
         padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .modal-header {
-        padding: 20px;
-    }
-    
-    .modal-header h2 {
-        font-size: 1.5rem;
-    }
-    
-    .close {
-        right: 15px;
-        top: 10px;
-        width: 35px;
-        height: 35px;
-        font-size: 24px;
     }
 }
