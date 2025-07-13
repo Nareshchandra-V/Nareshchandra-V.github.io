@@ -2,13 +2,24 @@ function showProjectDetails(projectId) {
     console.log('Showing project details for:', projectId);
     const content = getProjectContent(projectId);
     document.getElementById('modalContent').innerHTML = content;
-    document.getElementById('projectModal').style.display = 'block';
+    
+    // Show modal with smooth animation
+    const modal = document.getElementById('projectModal');
+    modal.style.display = 'block';
+    
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
-    document.getElementById('projectModal').style.display = 'none';
+    const modal = document.getElementById('projectModal');
+    modal.style.display = 'none';
+    
+    // Restore body scroll
+    document.body.style.overflow = 'auto';
 }
 
+// Rest of your JavaScript code stays the same...
 function getProjectContent(projectId) {
     const projects = {
         'sales-analytics': {
