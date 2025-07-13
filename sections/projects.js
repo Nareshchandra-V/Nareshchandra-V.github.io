@@ -1,23 +1,32 @@
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    // Remove custom project loading since we're keeping it public-only
-    console.log('Projects section loaded');
-});
-
-// Show project details
+// Show project details - MAIN FUNCTION
 function showProjectDetails(projectId) {
+    console.log('Showing project:', projectId); // Debug log
     const content = getProjectContent(projectId);
-    document.getElementById('modalContent').innerHTML = content;
-    document.getElementById('projectModal').style.display = 'block';
+    const modalContent = document.getElementById('modalContent');
+    const modal = document.getElementById('projectModal');
+    
+    if (modalContent && modal) {
+        modalContent.innerHTML = content;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+    } else {
+        console.error('Modal elements not found');
+    }
 }
 
 // Close main modal
 function closeModal() {
-    document.getElementById('projectModal').style.display = 'none';
+    const modal = document.getElementById('projectModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scroll
+    }
 }
 
-// Get project content - ALL PROJECTS INCLUDED
+// Get project content - ALL PROJECTS WITH FULL DETAILS
 function getProjectContent(projectId) {
+    console.log('Getting content for:', projectId); // Debug log
+    
     const projects = {
         'sales-analytics': {
             title: 'Sales Performance Analytics Dashboard',
@@ -226,7 +235,10 @@ function getProjectContent(projectId) {
     };
 
     const project = projects[projectId];
-    if (!project) return '<p>Project details not found.</p>';
+    if (!project) {
+        console.error('Project not found:', projectId);
+        return '<div class="modal-header"><h2>Project Not Found</h2><p>Sorry, project details are not available.</p></div>';
+    }
 
     return `
         <div class="modal-header">
@@ -267,37 +279,59 @@ function getProjectContent(projectId) {
             </div>
 
             <div class="metrics-section">
-               <h3>📊 Key Outcomes & Metrics</h3>
-               <div class="metrics-grid">
-                   ${project.metrics.map(metric => `
-                       <div class="metric-card">
-                           <div class="metric-value">${metric.value}</div>
-                           <div class="metric-label">${metric.label}</div>
-                       </div>
-                   `).join('')}
-               </div>
-           </div>
+                <h3>📊 Key Outcomes & Metrics</h3>
+                <div class="metrics-grid">
+                    ${project.metrics.map(metric => `
+                        <div class="metric-card">
+                            <div class="metric-value">${metric.value}</div>
+                            <div class="metric-label">${metric.label}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
 
-           <div class="tech-section">
-               <h3>🛠️ Technologies Used</h3>
-               <div class="tech-list">
-                   ${project.technologies.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
-               </div>
-           </div>
+            <div class="tech-section">
+                <h3>🛠️ Technologies Used</h3>
+                <div class="tech-list">
+                    ${project.technologies.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
+                </div>
+            </div>
 
-           <div class="impact-section">
-               <h3>💼 Business Impact</h3>
-               <p>${project.impact}</p>
-           </div>
-       </div>
-   `;
+            <div class="impact-section">
+                <h3>💼 Business Impact</h3>
+                <p>${project.impact}</p>
+            </div>
+        </div>
+    `;
 }
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Projects section loaded successfully');
+    
+    // Test if modal exists
+    const modal = document.getElementById('projectModal');
+    const modalContent = document.getElementById('modalContent');
+    
+    if (!modal) console.error('Project modal not found');
+    if (!modalContent) console.error('Modal content container not found');
+});
 
 // Close modal when clicking outside
-window.onclick = function(event) {
-   const projectModal = document.getElementById('projectModal');
-   
-   if (event.target === projectModal) {
-       closeModal();
-   }
-}
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('projectModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// Make functions globally available
+window.showProjectDetails = showProjectDetails;
+window.closeModal = closeModal;
