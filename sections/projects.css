@@ -122,7 +122,7 @@
     box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
 }
 
-/* Modal */
+/* Modal - FIXED POSITIONING */
 .modal {
     display: none;
     position: fixed;
@@ -133,18 +133,30 @@
     height: 100%;
     background: rgba(0,0,0,0.5);
     backdrop-filter: blur(5px);
+    overflow-y: auto;
 }
 
 .modal-content {
+    position: relative;
     background: white;
-    margin: 2% auto;
+    margin: 50px auto;
     border-radius: 15px;
     width: 90%;
-    max-width: 800px;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
+    max-width: 900px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .close {
@@ -177,6 +189,7 @@
     padding: 30px;
     text-align: center;
     border-radius: 15px 15px 0 0;
+    position: relative;
 }
 
 .modal-header h2 {
@@ -193,6 +206,8 @@
 
 .modal-body {
     padding: 30px;
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 .objective-section {
@@ -360,150 +375,3 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 1.2rem;
-}
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin: 20px 0;
-}
-
-.metric-card {
-    background: linear-gradient(135deg, #4ecdc4, #44a08d);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.metric-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(78, 205, 196, 0.3);
-}
-
-.metric-value {
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.metric-label {
-    font-size: 0.8rem;
-    opacity: 0.9;
-    font-weight: 500;
-}
-
-.tech-section {
-    margin: 25px 0;
-}
-
-.tech-section h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.2rem;
-}
-
-.tech-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 15px 0;
-}
-
-.tech-item {
-    background: #667eea;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.tech-item:hover {
-    background: #5a6fd8;
-    transform: translateY(-2px);
-}
-
-.impact-section {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-}
-
-.impact-section h3 {
-    color: white;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-}
-
-.impact-section p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    opacity: 0.95;
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .process-steps {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-card h3 {
-        height: auto;
-        font-size: 1.2rem;
-    }
-    
-    .project-card p {
-        height: auto;
-        -webkit-line-clamp: unset;
-    }
-    
-    .tech-tags {
-        min-height: auto;
-    }
-    
-    .two-column {
-        grid-template-columns: 1fr;
-    }
-    
-    .process-steps {
-        grid-template-columns: 1fr;
-    }
-    
-    .metrics-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .modal-content {
-        width: 95%;
-        margin: 2% auto;
-    }
-    
-    .modal-body {
-        padding: 20px;
-    }
-}
