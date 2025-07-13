@@ -1,32 +1,15 @@
-// Show project details - MAIN FUNCTION
 function showProjectDetails(projectId) {
-    console.log('Showing project:', projectId); // Debug log
+    console.log('Showing project details for:', projectId);
     const content = getProjectContent(projectId);
-    const modalContent = document.getElementById('modalContent');
-    const modal = document.getElementById('projectModal');
-    
-    if (modalContent && modal) {
-        modalContent.innerHTML = content;
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
-    } else {
-        console.error('Modal elements not found');
-    }
+    document.getElementById('modalContent').innerHTML = content;
+    document.getElementById('projectModal').style.display = 'block';
 }
 
-// Close main modal
 function closeModal() {
-    const modal = document.getElementById('projectModal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scroll
-    }
+    document.getElementById('projectModal').style.display = 'none';
 }
 
-// Get project content - ALL PROJECTS WITH FULL DETAILS
 function getProjectContent(projectId) {
-    console.log('Getting content for:', projectId); // Debug log
-    
     const projects = {
         'sales-analytics': {
             title: 'Sales Performance Analytics Dashboard',
@@ -235,10 +218,7 @@ function getProjectContent(projectId) {
     };
 
     const project = projects[projectId];
-    if (!project) {
-        console.error('Project not found:', projectId);
-        return '<div class="modal-header"><h2>Project Not Found</h2><p>Sorry, project details are not available.</p></div>';
-    }
+    if (!project) return '<p>Project details not found.</p>';
 
     return `
         <div class="modal-header">
@@ -305,33 +285,13 @@ function getProjectContent(projectId) {
     `;
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Projects section loaded successfully');
-    
-    // Test if modal exists
-    const modal = document.getElementById('projectModal');
-    const modalContent = document.getElementById('modalContent');
-    
-    if (!modal) console.error('Project modal not found');
-    if (!modalContent) console.error('Modal content container not found');
-});
-
 // Close modal when clicking outside
-document.addEventListener('click', function(event) {
-    const modal = document.getElementById('projectModal');
-    if (event.target === modal) {
+window.onclick = function(event) {
+    const projectModal = document.getElementById('projectModal');
+    if (event.target === projectModal) {
         closeModal();
     }
-});
+}
 
-// Close modal with Escape key
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeModal();
-    }
-});
-
-// Make functions globally available
-window.showProjectDetails = showProjectDetails;
-window.closeModal = closeModal;
+// Console log for debugging
+console.log('Projects JS loaded successfully');
