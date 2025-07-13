@@ -1,14 +1,57 @@
-function showProjectDetails(projectId) {
-    console.log('Showing project details for:', projectId);
+// Global variable to store click position
+let clickPosition = { x: 0, y: 0 };
+
+function showProjectDetailsAtClick(event, projectId) {
+    // Store click position
+    clickPosition.x = event.clientX;
+    clickPosition.y = event.clientY;
+    
+    console.log('Showing project details for:', projectId, 'at position:', clickPosition);
+    
     const content = getProjectContent(projectId);
     document.getElementById('modalContent').innerHTML = content;
     
-    // Show modal with smooth animation
+    // Show modal
     const modal = document.getElementById('projectModal');
     modal.style.display = 'block';
     
+    // Position modal near click location
+    positionModalAtClick();
+    
     // Prevent body scroll when modal is open
     document.body.style.overflow = 'hidden';
+}
+
+function positionModalAtClick() {
+    const modalContent = document.getElementById('modalContent');
+    const modal = document.getElementById('projectModal');
+    
+    // Calculate position based on click
+    let left = clickPosition.x - 400; // 400 is half of max modal width
+    let top = clickPosition.y - 200;  // 200 is estimated half height
+    
+    // Ensure modal stays within viewport
+    const maxWidth = 800;
+    const margin = 20;
+    
+    // Adjust horizontal position
+    if (left < margin) {
+        left = margin;
+    } else if (left + maxWidth > window.innerWidth - margin) {
+        left = window.innerWidth - maxWidth - margin;
+    }
+    
+    // Adjust vertical position
+    if (top < margin) {
+        top = margin;
+    } else if (top > window.innerHeight - 400) {
+        top = window.innerHeight - 400;
+    }
+    
+    // Apply position
+    modalContent.style.left = left + 'px';
+    modalContent.style.top = top + 'px';
+    modalContent.style.transform = 'none'; // Remove center transform
 }
 
 function closeModal() {
@@ -19,7 +62,7 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Rest of your JavaScript code stays the same...
+// Keep the same getProjectContent function...
 function getProjectContent(projectId) {
     const projects = {
         'sales-analytics': {
@@ -185,7 +228,7 @@ function getProjectContent(projectId) {
             ],
             metrics: [
                 { value: '45%', label: 'ROI Improvement' },
-                { value: '60%', label: 'Analysis Time Reduction' },
+                { value: '60%', label: 'Analysis Time Reduced' },
                 { value: '15+', label: 'Campaigns Optimized' },
                 { value: 'Real-time', label: 'Performance Tracking' }
             ],
@@ -232,77 +275,87 @@ function getProjectContent(projectId) {
     if (!project) return '<p>Project details not found.</p>';
 
     return `
+        <span class="close" onclick="closeModal()">&times;</span>
         <div class="modal-header">
             <h2>${project.title}</h2>
             <p>${project.subtitle}</p>
         </div>
+
         <div class="modal-body">
-            <div class="objective-section">
-                <h3>🎯 Project Objective</h3>
-                <p>${project.objective}</p>
-            </div>
+           <div class="objective-section">
+               <h3>🎯 Project Objective</h3>
+               <p>${project.objective}</p>
+           </div>
 
-            <div class="two-column">
-                <div class="pain-points">
-                    <h4>⚠️ Pain Points</h4>
-                    <ul class="point-list">
-                        ${project.painPoints.map(point => `<li>${point}</li>`).join('')}
-                    </ul>
-                </div>
-                <div class="solutions">
-                    <h4>✅ Solutions Implemented</h4>
-                    <ul class="point-list">
-                        ${project.solutions.map(solution => `<li>${solution}</li>`).join('')}
-                    </ul>
-                </div>
-            </div>
+           <div class="two-column">
+               <div class="pain-points">
+                   <h4>⚠️ Pain Points</h4>
+                   <ul class="point-list">
+                       ${project.painPoints.map(point => `<li>${point}</li>`).join('')}
+                   </ul>
+               </div>
+               <div class="solutions">
+                   <h4>✅ Solutions Implemented</h4>
+                   <ul class="point-list">
+                       ${project.solutions.map(solution => `<li>${solution}</li>`).join('')}
+                   </ul>
+               </div>
+           </div>
 
-            <div class="process-section">
-                <h3>🔄 Implementation Process</h3>
-                <div class="process-steps">
-                    ${project.processSteps.map((step, index) => `
-                        <div class="process-step">
-                            <div class="step-number">${index + 1}</div>
-                            <h5>${step}</h5>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
+           <div class="process-section">
+               <h3>🔄 Implementation Process</h3>
+               <div class="process-steps">
+                   ${project.processSteps.map((step, index) => `
+                       <div class="process-step">
+                           <div class="step-number">${index + 1}</div>
+                           <h5>${step}</h5>
+                       </div>
+                   `).join('')}
+               </div>
+           </div>
 
-            <div class="metrics-section">
-                <h3>📊 Key Outcomes & Metrics</h3>
-                <div class="metrics-grid">
-                    ${project.metrics.map(metric => `
-                        <div class="metric-card">
-                            <div class="metric-value">${metric.value}</div>
-                            <div class="metric-label">${metric.label}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
+           <div class="metrics-section">
+               <h3>📊 Key Outcomes & Metrics</h3>
+               <div class="metrics-grid">
+                   ${project.metrics.map(metric => `
+                       <div class="metric-card">
+                           <div class="metric-value">${metric.value}</div>
+                           <div class="metric-label">${metric.label}</div>
+                       </div>
+                   `).join('')}
+               </div>
+           </div>
 
-            <div class="tech-section">
-                <h3>🛠️ Technologies Used</h3>
-                <div class="tech-list">
-                    ${project.technologies.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
-                </div>
-            </div>
+           <div class="tech-section">
+               <h3>🛠️ Technologies Used</h3>
+               <div class="tech-list">
+                   ${project.technologies.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
+               </div>
+           </div>
 
-            <div class="impact-section">
-                <h3>💼 Business Impact</h3>
-                <p>${project.impact}</p>
-            </div>
-        </div>
-    `;
+           <div class="impact-section">
+               <h3>💼 Business Impact</h3>
+               <p>${project.impact}</p>
+           </div>
+       </div>
+   `;
 }
 
 // Close modal when clicking outside
 window.onclick = function(event) {
-    const projectModal = document.getElementById('projectModal');
-    if (event.target === projectModal) {
-        closeModal();
-    }
+   const projectModal = document.getElementById('projectModal');
+   if (event.target === projectModal) {
+       closeModal();
+   }
 }
+
+// Handle window resize to reposition modal
+window.addEventListener('resize', function() {
+   const modal = document.getElementById('projectModal');
+   if (modal.style.display === 'block') {
+       positionModalAtClick();
+   }
+});
 
 // Console log for debugging
 console.log('Projects JS loaded successfully');
