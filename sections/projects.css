@@ -7,18 +7,16 @@
 
 .project-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     text-align: center;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    height: fit-content;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
@@ -35,31 +33,31 @@
 }
 
 .project-icon.sales {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .project-icon.ecommerce {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .project-icon.inventory {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .project-icon.financial {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .project-icon.marketing {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .project-icon.automation {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .project-card h3 {
-    color: #2d3436;
+    color: #2c3e50;
     font-size: 1.1rem;
     margin-bottom: 8px;
     font-weight: 600;
@@ -67,24 +65,23 @@
 }
 
 .project-card p {
-    color: #636e72;
+    color: #666;
     font-size: 0.85rem;
     line-height: 1.4;
     margin-bottom: 12px;
-    flex-grow: 1;
 }
 
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 5px;
     justify-content: center;
     margin-bottom: 15px;
 }
 
 .tech-tags span {
-    background: #f1f3f4;
-    color: #6c5ce7;
+    background: #f0f7ff;
+    color: #667eea;
     padding: 3px 8px;
     border-radius: 10px;
     font-size: 0.7rem;
@@ -93,21 +90,43 @@
 
 .view-details-btn {
     width: 100%;
-    background: linear-gradient(135deg, #00b894, #00cec9);
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
     color: white;
     border: none;
     padding: 10px;
-    border-radius: 18px;
-    font-size: 0.9rem;
+    border-radius: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: auto;
+    font-size: 0.9rem;
 }
 
 .view-details-btn:hover {
-    background: linear-gradient(135deg, #00a085, #00b7b3);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #44a08d, #4ecdc4);
+}
+
+.add-project-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.add-project-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-project-btn:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    transform: translateY(-2px);
 }
 
 /* Modal */
@@ -124,13 +143,17 @@
 
 .modal-content {
     background: white;
-    margin: 2% auto;
+    margin: 3% auto;
     border-radius: 15px;
     width: 90%;
     max-width: 800px;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
+}
+
+.modal-content.add-modal {
+    max-width: 500px;
 }
 
 .close {
@@ -143,9 +166,9 @@
     z-index: 10;
 }
 
-/* Modal Content Styles */
+/* Modal Content */
 .modal-header {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     padding: 25px;
     text-align: center;
@@ -153,7 +176,7 @@
 }
 
 .modal-header h2 {
-    margin: 0 0 6px 0;
+    margin: 0 0 5px 0;
     font-size: 1.6rem;
 }
 
@@ -172,11 +195,11 @@
 }
 
 .objective-section h3 {
-    color: #2d3436;
+    color: #2c3e50;
     margin-bottom: 8px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     font-size: 1.1rem;
 }
 
@@ -188,21 +211,20 @@
 }
 
 .pain-points {
-    background: #fef7f0;
-    border-left: 4px solid #e17055;
+    background: #fff8f0;
+    border-left: 4px solid #ff9500;
     padding: 15px;
     border-radius: 6px;
 }
 
 .solutions {
     background: #f0fff4;
-    border-left: 4px solid #00b894;
+    border-left: 4px solid #00c851;
     padding: 15px;
     border-radius: 6px;
 }
 
-.pain-points h4 {
-    color: #e17055;
+.pain-points h4, .solutions h4 {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -210,14 +232,8 @@
     font-size: 1rem;
 }
 
-.solutions h4 {
-    color: #00b894;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 1rem;
-}
+.pain-points h4 { color: #ff9500; }
+.solutions h4 { color: #00c851; }
 
 .point-list {
     list-style: none;
@@ -237,7 +253,7 @@
     content: '•';
     position: absolute;
     left: 0;
-    color: #e17055;
+    color: #ff9500;
     font-weight: bold;
 }
 
@@ -245,7 +261,7 @@
     content: '•';
     position: absolute;
     left: 0;
-    color: #00b894;
+    color: #00c851;
     font-weight: bold;
 }
 
@@ -255,9 +271,9 @@
 
 .process-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-    margin: 12px 0;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 15px 0;
 }
 
 .process-step {
@@ -270,15 +286,15 @@
 }
 
 .process-step:hover {
-    border-color: #6c5ce7;
-    background: #6c5ce7;
+    border-color: #667eea;
+    background: #667eea;
     color: white;
 }
 
 .step-number {
-    width: 24px;
-    height: 24px;
-    background: #6c5ce7;
+    width: 25px;
+    height: 25px;
+    background: #667eea;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -291,7 +307,7 @@
 
 .process-step:hover .step-number {
     background: white;
-    color: #6c5ce7;
+    color: #667eea;
 }
 
 .process-step h5 {
@@ -306,13 +322,13 @@
 
 .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
-    margin: 12px 0;
+    margin: 15px 0;
 }
 
 .metric-card {
-    background: linear-gradient(135deg, #00b894, #00cec9);
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
     color: white;
     padding: 15px;
     border-radius: 8px;
@@ -338,20 +354,20 @@
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin: 12px 0;
+    margin: 15px 0;
 }
 
 .tech-item {
-    background: #6c5ce7;
+    background: #667eea;
     color: white;
-    padding: 4px 10px;
+    padding: 5px 10px;
     border-radius: 12px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
 .impact-section {
-    background: #6c5ce7;
+    background: #667eea;
     color: white;
     padding: 15px;
     border-radius: 8px;
@@ -365,13 +381,65 @@
 }
 
 .impact-section p {
-    font-size: 0.85rem;
-    line-height: 1.4;
     margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #44a08d, #4ecdc4);
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
     .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .process-steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .metrics-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -391,7 +459,7 @@
     }
     
     .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
     
     .modal-content {
