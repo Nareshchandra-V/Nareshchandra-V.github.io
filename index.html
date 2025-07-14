@@ -19,7 +19,6 @@
             min-height: 100vh;
         }
 
-        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -62,7 +61,6 @@
             color: #64b5f6;
         }
 
-        /* Hero Section */
         .hero {
             margin-top: 80px;
             padding: 4rem 2rem;
@@ -115,7 +113,6 @@
             opacity: 0.8;
         }
 
-        /* Skills Section */
         .skills-section {
             background: white;
             padding: 4rem 2rem;
@@ -173,7 +170,6 @@
             font-weight: 500;
         }
 
-        /* Projects Section */
         .projects-section {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 4rem 2rem;
@@ -181,7 +177,8 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -258,7 +255,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -393,7 +389,6 @@
             font-weight: 600;
         }
 
-        /* Contact Section */
         .contact-section {
             background: #2c3e50;
             color: white;
@@ -422,7 +417,6 @@
             transform: translateY(-3px);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -431,6 +425,11 @@
             .hero-stats {
                 flex-direction: column;
                 gap: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
             }
             
             .problem-solution-grid {
@@ -444,7 +443,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Nareshchandra V</div>
@@ -457,7 +455,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Nareshchandra V</h1>
@@ -470,22 +467,21 @@
                     <div class="stat-label">Years Experience</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Dashboards Created</div>
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Fill Rate Achievement</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">40%</div>
                     <div class="stat-label">Process Efficiency Gain</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Business Solutions</div>
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">CFA Expiry Reduction</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <div class="container">
             <h2 class="section-title">Technical Expertise</h2>
@@ -505,9 +501,9 @@
                 <div class="skill-category">
                     <h3>📊 Data Analytics</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Python</span>
                         <span class="skill-tag">Advanced Excel</span>
+                        <span class="skill-tag">Google Sheets</span>
+                        <span class="skill-tag">Python</span>
                         <span class="skill-tag">Statistical Analysis</span>
                         <span class="skill-tag">Data Visualization</span>
                         <span class="skill-tag">KPI Development</span>
@@ -522,6 +518,7 @@
                         <span class="skill-tag">Report Optimization</span>
                         <span class="skill-tag">Workflow Automation</span>
                         <span class="skill-tag">Power Pivot</span>
+                        <span class="skill-tag">Google Apps Script</span>
                     </div>
                 </div>
                 
@@ -539,117 +536,110 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="projects-section">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
                 
-                <!-- Project 1: Sales Performance Dashboard -->
-                <div class="project-card" onclick="openModal('salesDashboard')">
+                <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">📊</div>
                         <div class="project-title">Sales Performance Analytics</div>
                     </div>
                     <div class="project-content">
-                        <p class="project-summary">Comprehensive sales dashboard system with real-time tracking, target vs actual analysis, and geographic performance insights.</p>
+                        <p class="project-summary">Comprehensive primary & secondary sales dashboard with CFA-wise fill rate analysis, real-time target vs actuals tracking, and day-1 data updates.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Power BI</span>
                             <span class="tech-tag">DAX</span>
-                            <span class="tech-tag">SQL</span>
                             <span class="tech-tag">Excel</span>
+                            <span class="tech-tag">Google Sheets</span>
                         </div>
-                        <button class="view-details-btn">View Details</button>
+                        <button class="view-details-btn" onclick="openModal('salesPerformanceAnalytics')">View Details</button>
                     </div>
                 </div>
 
-                <!-- Project 2: E-commerce Analytics -->
-                <div class="project-card" onclick="openModal('ecommerceAnalytics')">
+                <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">🛒</div>
-                        <div class="project-title">E-commerce Intelligence Platform</div>
+                        <div class="project-title">E-commerce Intelligence</div>
                     </div>
                     <div class="project-content">
-                        <p class="project-summary">Advanced analytics for Blinkit, Swiggy, Zepto platforms with market share analysis, demand forecasting, and PO tracking.</p>
+                        <p class="project-summary">Sales planning with exponential smoothing for Amazon, BigBasket, Blinkit, Swiggy, Zepto. PO tracking with seasonal & secondary factor analysis.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Exponential Smoothing</span>
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Power Query</span>
-                            <span class="tech-tag">Forecasting</span>
+                            <span class="tech-tag">Excel</span>
+                            <span class="tech-tag">PO Tracking</span>
                         </div>
-                        <button class="view-details-btn">View Details</button>
+                        <button class="view-details-btn" onclick="openModal('ecommerceIntelligence')">View Details</button>
                     </div>
                 </div>
 
-                <!-- Project 3: Inventory Optimization -->
-                <div class="project-card" onclick="openModal('inventoryOptimization')">
+                <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">📦</div>
-                        <div class="project-title">Inventory Management System</div>
+                        <div class="project-title">Inventory Management</div>
                     </div>
                     <div class="project-content">
-                        <p class="project-summary">Smart inventory optimization reducing stockouts and overstock situations through predictive analytics and fill rate analysis.</p>
+                        <p class="project-summary">CFA-wise stock optimization with ABC analysis, fill rate optimization, automated dispatch planning, and expiry elimination system.</p>
                         <div class="project-tech">
+                            <span class="tech-tag">ABC Analysis</span>
+                            <span class="tech-tag">Fill Rate</span>
+                            <span class="tech-tag">Dispatch Planning</span>
                             <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">DAX</span>
-                            <span class="tech-tag">Predictive Analytics</span>
-                            <span class="tech-tag">ETL</span>
                         </div>
-                        <button class="view-details-btn">View Details</button>
+                        <button class="view-details-btn" onclick="openModal('inventoryManagement')">View Details</button>
                     </div>
                 </div>
 
-                <!-- Project 4: Financial Analytics -->
-                <div class="project-card" onclick="openModal('financialAnalytics')">
+                <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">💰</div>
-                        <div class="project-title">Financial Reporting Suite</div>
+                        <div class="project-title">Financial Analytics</div>
                     </div>
                     <div class="project-content">
-                        <p class="project-summary">Automated collections tracking, outstanding analysis, and NRGP reporting with reconciliation workflows.</p>
+                        <p class="project-summary">Real-time collections tracking, aging analysis with drill-down, NRGP reporting, and automated reconciliation workflows.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">Automation</span>
-                            <span class="tech-tag">Financial Modeling</span>
+                            <span class="tech-tag">Collections</span>
+                            <span class="tech-tag">NRGP</span>
+                            <span class="tech-tag">Aging Analysis</span>
+                            <span class="tech-tag">Excel</span>
                         </div>
-                        <button class="view-details-btn">View Details</button>
+                        <button class="view-details-btn" onclick="openModal('financialAnalytics')">View Details</button>
                     </div>
                 </div>
 
-                <!-- Project 5: Marketing ROI Analytics -->
-                <div class="project-card" onclick="openModal('marketingROI')">
+                <div class="project-card">
                     <div class="project-header">
-                        <div class="project-icon">📈</div>
-                        <div class="project-title">Marketing ROI Tracker</div>
+                        <div class="project-icon">🔍</div>
+                        <div class="project-title">Market Intelligence</div>
                     </div>
                     <div class="project-content">
-                        <p class="project-summary">Comprehensive marketing analytics with keyword performance tracking, campaign effectiveness, and spend optimization.</p>
+                        <p class="project-summary">SOV tracking, OSA monitoring, darkstore listing analysis, competitor investment tracking, and promotional RCA analysis.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Marketing Analytics</span>
-                            <span class="tech-tag">ROI Modeling</span>
-                            <span class="tech-tag">Automation</span>
+                            <span class="tech-tag">SOV</span>
+                            <span class="tech-tag">OSA</span>
+                            <span class="tech-tag">Competitive Analysis</span>
+                            <span class="tech-tag">RCA</span>
                         </div>
-                        <button class="view-details-btn">View Details</button>
+                        <button class="view-details-btn" onclick="openModal('marketIntelligence')">View Details</button>
                     </div>
                 </div>
 
-                <!-- Project 6: Process Automation -->
-                <div class="project-card" onclick="openModal('processAutomation')">
+                <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">⚙️</div>
-                        <div class="project-title">Business Process Automation</div>
+                        <div class="project-title">Process Automation</div>
                     </div>
                     <div class="project-content">
-                        <p class="project-summary">End-to-end automation framework reducing manual reporting by 40% through intelligent workflows and data pipelines.</p>
+                        <p class="project-summary">Media plan automation, ROAS optimization, end-to-end order tracking from receiving to fulfillment, and seller platform integration.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Power Automate</span>
-                            <span class="tech-tag">ETL</span>
-                            <span class="tech-tag">Workflow Design</span>
+                            <span class="tech-tag">Media Automation</span>
+                            <span class="tech-tag">ROAS</span>
+                            <span class="tech-tag">Order Tracking</span>
+                            <span class="tech-tag">Integration</span>
                         </div>
-                        <button class="view-details-btn">View Details</button>
+                        <button class="view-details-btn" onclick="openModal('processAutomation')">View Details</button>
                     </div>
                 </div>
 
@@ -657,7 +647,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
             <h2>Let's Connect</h2>
@@ -665,13 +654,11 @@
             <div class="contact-links">
                 <a href="mailto:nareshchandraofficial@gmail.com" class="contact-link">📧 Email</a>
                 <a href="tel:+916302141998" class="contact-link">📞 Call</a>
-                <a href="#" class="contact-link">💼 LinkedIn</a>
-                <a href="#" class="contact-link">📄 Resume</a>
+                <a href="https://www.linkedin.com/in/nareshchandra-v-bi-developer" class="contact-link">💼 LinkedIn</a>
             </div>
         </div>
     </section>
 
-    <!-- Modal for Project Details -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -679,333 +666,298 @@
                 <h2 id="modalTitle">Project Details</h2>
                 <p id="modalSubtitle">Complete Case Study</p>
             </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Content will be dynamically inserted here -->
-            </div>
+            <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
 
     <script>
-        // Project data
-        const projects = {
-            salesDashboard: {
+        var projects = {
+            salesPerformanceAnalytics: {
                 title: "Sales Performance Analytics Dashboard",
-                subtitle: "Real-time Sales Tracking & Target Analysis System",
-                objective: "Create a comprehensive sales analytics solution providing real-time visibility into sales performance across different geographies, products, and time periods.",
+                subtitle: "Primary & Secondary Sales with CFA-wise Fill Rate Analysis",
+                objective: "Create comprehensive sales analytics dashboard providing overview of primary and offtake sales performance, monitoring fill rate reduction through CFA-wise analysis, and tracking daily target vs actuals at SKU level with day-1 data updates.",
                 painPoints: [
-                    "Manual sales reporting taking 2+ days per week",
-                    "Lack of real-time visibility into sales performance",
-                    "Difficulty in tracking target vs actual performance",
-                    "No geographic or SKU-wise performance insights",
-                    "Delayed decision-making due to outdated reports"
+                    "No visibility into how primary sales impact fill rates across different CFAs",
+                    "Manual tracking of primary and secondary SKU performance taking days",
+                    "Lack of real-time target vs actual comparison at daily and SKU level",
+                    "No unified dashboard showing correlation between primary sales and offtake performance",
+                    "Delayed data updates affecting quick decision-making for sales strategies"
                 ],
                 solution: [
-                    "Developed interactive Power BI dashboards with real-time data refresh",
-                    "Implemented DAX calculations for complex metrics and KPIs",
-                    "Created automated ETL processes using Power Query",
-                    "Built geographic visualization with drill-down capabilities",
-                    "Established data gateway for automated data refresh"
+                    "Built integrated Power BI dashboard connecting primary sales to fill rate impact by CFA",
+                    "Created automated primary and secondary SKU performance tracking with Excel/Google Sheets integration",
+                    "Implemented daily target vs actual monitoring with variance analysis using DAX calculations",
+                    "Established day-1 data refresh system ensuring real-time visibility",
+                    "Developed correlation analysis showing primary sales effect on secondary performance"
                 ],
                 process: [
-                    "Requirement gathering and stakeholder interviews",
-                    "Data source identification and mapping",
-                    "Dashboard design and wireframing",
-                    "Development and testing",
-                    "User training and deployment"
+                    "Primary and secondary sales data mapping from Excel sources",
+                    "CFA-wise fill rate calculation methodology development",
+                    "Daily target vs actual tracking framework implementation",
+                    "Real-time dashboard creation with automated refresh",
+                    "SKU-level performance analysis and variance tracking setup"
                 ],
                 outcomes: [
-                    { label: "Time Saved", value: "75%" },
-                    { label: "Report Generation", value: "Real-time" },
-                    { label: "Decision Speed", value: "3x Faster" },
-                    { label: "Data Accuracy", value: "99.9%" }
+                    { label: "Data Refresh Speed", value: "Day-1" },
+                    { label: "Fill Rate Visibility", value: "Real-time" },
+                    { label: "CFA Coverage", value: "100%" },
+                    { label: "Decision Speed", value: "5x Faster" }
                 ],
-                technologies: ["Power BI", "DAX", "Power Query", "SQL Server", "Excel", "Power BI Service"],
-                impact: "Transformed sales reporting from a 2-day manual process to real-time automated insights, enabling faster strategic decisions and improving sales team productivity by 40%."
+                technologies: ["Power BI", "DAX", "Excel", "Google Sheets", "Real-time Integration"],
+                impact: "Transformed sales performance monitoring enabling immediate identification of primary sales impact on fill rates, reducing decision-making time from days to hours and improving sales strategy execution by 400%."
             },
-            
-            ecommerceAnalytics: {
+            ecommerceIntelligence: {
                 title: "E-commerce Intelligence Platform",
-                subtitle: "Multi-platform Analytics for Quick Commerce",
-                objective: "Build comprehensive analytics solution for e-commerce platforms (Blinkit, Swiggy, Zepto) with market share analysis, demand forecasting, and performance tracking.",
+                subtitle: "Multi-platform Sales Planning with Exponential Smoothing & PO Analysis",
+                objective: "Build comprehensive e-commerce sales planning system using exponential smoothing for Amazon, BigBasket, Blinkit, Swiggy, Zepto with PO pattern analysis considering secondary and seasonal factors, plus city-wise SKU level tracking.",
                 painPoints: [
-                    "No unified view across multiple e-commerce platforms",
-                    "Lack of market share insights",
-                    "Poor demand forecasting leading to stockouts",
-                    "Manual PO tracking and order management",
-                    "No competitive analysis capabilities"
+                    "No unified sales planning across 5 major e-commerce platforms (Amazon, BigBasket, Blinkit, Swiggy, Zepto)",
+                    "Manual PO tracking without considering seasonal variations and secondary factors",
+                    "Poor demand forecasting leading to stockouts during peak seasons",
+                    "Lack of city-wise SKU level visibility for targeted inventory planning",
+                    "No systematic approach to analyze PO patterns and seasonal trends"
                 ],
                 solution: [
-                    "Integrated data from multiple e-commerce platforms",
-                    "Implemented exponential smoothing for demand forecasting",
-                    "Created market share analysis with competitive benchmarking",
-                    "Built PO tracking system with automated alerts",
-                    "Developed platform-wise performance comparison dashboards"
+                    "Implemented exponential smoothing forecasting model for all 5 e-commerce platforms",
+                    "Built PO pattern analysis system incorporating seasonal factors and secondary sales data",
+                    "Created city-wise SKU level tracking with SOH (Stock on Hand) analysis",
+                    "Developed automated PO trend identification system using Python and Excel",
+                    "Established seasonal factor adjustment mechanism for improved forecast accuracy"
                 ],
                 process: [
-                    "Platform API integration and data extraction",
-                    "Data cleansing and transformation",
-                    "Forecasting model development",
-                    "Dashboard creation and visualization",
-                    "Testing and validation"
+                    "Multi-platform data integration from Amazon, BigBasket, Blinkit, Swiggy, Zepto",
+                    "Exponential smoothing model development and calibration for each platform",
+                    "Secondary and seasonal factor analysis implementation",
+                    "City-wise SKU tracking system development",
+                    "PO pattern recognition and trend analysis automation"
                 ],
                 outcomes: [
-                    { label: "Market Visibility", value: "100%" },
-                    { label: "Forecast Accuracy", value: "85%" },
-                    { label: "Stockout Reduction", value: "60%" },
-                    { label: "Platform Coverage", value: "3 Major" }
+                    { label: "Platform Coverage", value: "5 Major" },
+                    { label: "Forecast Accuracy", value: "87%" },
+                    { label: "Cities Covered", value: "30+" },
+                    { label: "Stockout Reduction", value: "65%" }
                 ],
-                technologies: ["Power BI", "Python", "Power Query", "Exponential Smoothing", "API Integration", "DAX"],
-                impact: "Enabled data-driven decision making across e-commerce channels, resulting in 60% reduction in stockouts and 25% improvement in market positioning."
+                technologies: ["Exponential Smoothing", "Python", "Excel", "Google Sheets", "Multi-platform Integration"],
+                impact: "Enhanced e-commerce operations across all major platforms with 87% forecast accuracy, reducing stockouts by 65% and improving planning efficiency by 70% through systematic seasonal and secondary factor analysis."
             },
-
-            inventoryOptimization: {
+            inventoryManagement: {
                 title: "Smart Inventory Management System",
-                subtitle: "Predictive Analytics for Inventory Optimization",
-                objective: "Develop intelligent inventory management system to optimize stock levels, reduce carrying costs, and prevent stockouts through predictive analytics.",
+                subtitle: "CFA-wise Optimization with ABC Analysis & Expiry Elimination",
+                objective: "Develop intelligent CFA-wise inventory management system with ABC analysis for city-wise categorization, fill rate optimization algorithms, automated dispatch planning (reorder points), and real-time tracking to eliminate CFA expiries.",
                 painPoints: [
-                    "High inventory carrying costs",
-                    "Frequent stockouts affecting sales",
-                    "Overstock situations leading to wastage",
-                    "No visibility into inventory turnover rates",
-                    "Manual inventory planning processes"
+                    "High CFA expiry rates causing significant financial losses and waste",
+                    "No systematic ABC analysis for city-wise inventory categorization and prioritization",
+                    "Manual dispatch planning without automated reorder point calculations",
+                    "Poor fill rate performance affecting customer satisfaction and sales",
+                    "Lack of real-time inventory visibility across different CFAs"
                 ],
                 solution: [
-                    "Built predictive models for demand forecasting",
-                    "Implemented ABC analysis for inventory categorization",
-                    "Created fill rate analysis and optimization algorithms",
-                    "Developed automated reorder point calculations",
-                    "Built real-time inventory tracking dashboards"
+                    "Implemented comprehensive ABC analysis for city-wise inventory categorization",
+                    "Built fill rate analysis and optimization algorithms to maintain 95%+ service levels",
+                    "Created automated dispatch planning system with intelligent reorder point calculations",
+                    "Developed real-time inventory tracking dashboard covering all CFAs",
+                    "Established CFA expiry prevention system with automated alerts and recommendations"
                 ],
                 process: [
-                    "Historical data analysis and pattern identification",
-                    "Predictive model development and testing",
-                    "Dashboard design with actionable insights",
-                    "Integration with existing inventory systems",
-                    "User training and process optimization"
+                    "CFA inventory data collection and ABC classification methodology",
+                    "Fill rate optimization algorithm development and testing",
+                    "Automated dispatch plan creation with reorder point logic",
+                    "Real-time tracking dashboard implementation",
+                    "Expiry prevention workflow and alert system establishment"
                 ],
                 outcomes: [
-                    { label: "Carrying Cost Reduction", value: "30%" },
-                    { label: "Stockout Prevention", value: "80%" },
-                    { label: "Inventory Turnover", value: "2x Improved" },
-                    { label: "Fill Rate", value: "95%+" }
+                    { label: "CFA Expiry Reduction", value: "85%" },
+                    { label: "Fill Rate Achievement", value: "96%" },
+                    { label: "Dispatch Efficiency", value: "60% Better" },
+                    { label: "Inventory Accuracy", value: "99%" }
                 ],
-                technologies: ["Power BI", "DAX", "Predictive Analytics", "Statistical Modeling", "ETL", "SQL"],
-                impact: "Transformed inventory management from reactive to proactive approach, reducing carrying costs by 30% while maintaining 95%+ fill rates and eliminating critical stockouts."
+                technologies: ["ABC Analysis", "Fill Rate Optimization", "Dispatch Planning", "Real-time Tracking", "Power BI"],
+                impact: "Eliminated 85% of CFA expiries while achieving 96% fill rates through intelligent ABC analysis, automated dispatch planning, and real-time inventory tracking across all distribution centers."
             },
-
             financialAnalytics: {
-                title: "Financial Reporting & Analytics Suite",
-                subtitle: "Automated Financial Intelligence Platform",
-                objective: "Create comprehensive financial analytics platform for collections tracking, outstanding analysis, and automated reconciliation processes.",
+                title: "Financial Analytics Suite",
+                subtitle: "Real-time Collections, Aging Analysis & NRGP Reporting",
+                objective: "Create comprehensive financial analytics platform with automated collections tracking providing real-time account-wise access, aging analysis with drill-down capabilities, NRGP reporting automation, and reconciliation workflows.",
                 painPoints: [
-                    "Manual collections tracking taking days",
-                    "No visibility into aging analysis",
-                    "Delayed reconciliation processes",
-                    "Lack of payment prediction capabilities",
-                    "Scattered financial data across systems"
+                    "Manual collections tracking without real-time account-wise visibility",
+                    "Time-consuming aging analysis requiring manual drill-down and categorization",
+                    "Complex NRGP (Net Revenue Growth Percentage) reporting taking days of manual effort",
+                    "Delayed reconciliation processes affecting cash flow management decisions",
+                    "No automated financial KPI monitoring and exception reporting"
                 ],
                 solution: [
-                    "Automated collections tracking with real-time updates",
-                    "Built aging analysis with drill-down capabilities",
-                    "Created payment prediction models",
-                    "Implemented automated reconciliation workflows",
-                    "Developed comprehensive financial KPI dashboards"
+                    "Automated collections tracking with real-time account-wise dashboard access",
+                    "Built comprehensive aging analysis with multi-level drill-down capabilities (30, 60, 90+ days)",
+                    "Created automated NRGP reporting with validation checks and accuracy monitoring",
+                    "Implemented automated reconciliation workflows with variance identification and resolution",
+                    "Developed comprehensive financial KPI dashboards with real-time monitoring and alerts"
                 ],
                 process: [
-                    "Financial data mapping and integration",
-                    "Automated workflow design",
-                    "Predictive model development",
-                    "Dashboard creation with financial KPIs",
-                    "Testing and process validation"
+                    "Financial data source integration from Excel and Google Sheets",
+                    "Collections tracking automation with account-wise access setup",
+                    "Aging analysis methodology and drill-down structure creation",
+                    "NRGP reporting automation with validation rules and error checking",
+                    "Reconciliation workflow optimization and variance tracking implementation"
                 ],
                 outcomes: [
-                    { label: "Collections Efficiency", value: "50%" },
-                    { label: "Reconciliation Time", value: "90% Faster" },
-                    { label: "Payment Prediction", value: "80% Accuracy" },
-                    { label: "Manual Work Reduction", value: "70%" }
-                ],
-                technologies: ["Power BI", "SQL", "Financial Modeling", "Automation", "DAX", "Excel"],
-                impact: "Streamlined financial operations reducing manual work by 70%, improving collections efficiency by 50%, and enabling proactive financial management through predictive insights."
-            },
+                    { label: "Collections Efficiency", value: "55%" },
+                    { label: "Account Visibility", value: "Real-time" },
+                   { label: "NRGP Accuracy", value: "99.5%" },
+                   { label: "Reconciliation Time", value: "80% Faster" }
+               ],
+               technologies: ["Power BI", "Excel", "Google Sheets", "Financial Modeling", "DAX"],
+               impact: "Streamlined financial operations improving collections efficiency by 55% and reducing reconciliation time by 80%, enabling proactive cash flow management through real-time account-wise visibility and automated NRGP reporting."
+           },
+           marketIntelligence: {
+               title: "Market Intelligence Platform",
+               subtitle: "SOV, OSA, Darkstore Tracking & Competitive Analysis",
+               objective: "Build comprehensive market intelligence platform tracking SOV (Share of Voice), OSA (On Shelf Availability), darkstore listings across Blinkit, Swiggy, Zepto with competitor investment analysis, promotional tracking, and RCA (Root Cause Analysis).",
+               painPoints: [
+                   "No systematic SOV tracking across quick commerce platforms (Blinkit, Swiggy, Zepto)",
+                   "Manual OSA monitoring taking extensive time without real-time visibility",
+                   "Lack of darkstore listing visibility and competitive positioning insights",
+                   "No systematic competitor investment and promotional activity analysis",
+                   "External data from scraping tools requiring projection and integration with internal data"
+               ],
+               solution: [
+                   "Automated SOV tracking across Blinkit, Swiggy, Zepto platforms using external data tools",
+                   "Built comprehensive OSA monitoring system with availability percentage tracking",
+                   "Created darkstore listing analysis with competitive positioning and market share insights",
+                   "Implemented competitor investment tracking and promotional analysis with RCA framework",
+                   "Established data projection methodology to combine external estimates with internal actual data"
+               ],
+               process: [
+                   "External tool data scraping integration and standardization",
+                   "SOV calculation methodology development and automated tracking setup",
+                   "OSA monitoring system implementation with real-time availability metrics",
+                   "Darkstore listing analysis framework and competitive intelligence creation",
+                   "Data projection model development for accurate competitive analysis"
+               ],
+               outcomes: [
+                   { label: "Platform Coverage", value: "3 Major" },
+                   { label: "SOV Tracking Accuracy", value: "92%" },
+                   { label: "OSA Visibility", value: "100%" },
+                   { label: "Competitive Insights", value: "Real-time" }
+               ],
+               technologies: ["Market Analysis", "SOV Tracking", "OSA Monitoring", "Competitive Intelligence", "External Data Integration"],
+               impact: "Enhanced market positioning through comprehensive competitive intelligence with 92% SOV accuracy and complete OSA visibility, enabling strategic decision-making and competitive advantage across major quick commerce platforms."
+           },
+           processAutomation: {
+               title: "Process Automation Suite",
+               subtitle: "Media Plan Automation, ROAS Optimization & Order Tracking",
+               objective: "Design comprehensive automation framework with media plan automation to reduce manual work and identify money leakage for ROAS improvement, plus end-to-end seller platform tracking from order receiving to fulfillment.",
+               painPoints: [
+                   "Manual media planning consuming 10+ hours weekly with potential money leakage",
+                   "Poor ROAS due to inefficient media plan execution and lack of optimization",
+                   "No end-to-end visibility in seller platform order processing workflow",
+                   "Manual order tracking from receiving to fulfillment affecting operational efficiency",
+                   "Disconnected processes between media planning and order fulfillment systems"
+               ],
+               solution: [
+                   "Automated media planning workflows with money leakage identification and prevention",
+                   "Built ROAS optimization system with automated budget allocation and performance tracking",
+                   "Created end-to-end seller platform tracking from order receiving to final fulfillment",
+                   "Implemented automated order processing workflow with real-time status monitoring",
+                   "Established integrated process automation reducing manual intervention by 45%"
+               ],
+               process: [
+                   "Media planning process mapping and automation opportunity identification",
+                   "ROAS optimization algorithm development and automated adjustment implementation",
+                   "End-to-end order tracking system design and seller platform integration",
+                   "Automated workflow creation with status monitoring and exception handling",
+                   "Process integration optimization and efficiency measurement setup"
+               ],
+               outcomes: [
+                   { label: "Manual Work Reduction", value: "45%" },
+                   { label: "ROAS Improvement", value: "35%" },
+                   { label: "Order Visibility", value: "End-to-End" },
+                   { label: "Process Efficiency", value: "60% Better" }
+               ],
+               technologies: ["Media Plan Automation", "ROAS Optimization", "Order Tracking", "Process Integration", "Google Apps Script"],
+               impact: "Revolutionized operational efficiency reducing manual work by 45% and improving ROAS by 35% through intelligent media plan automation and comprehensive end-to-end order tracking from receiving to fulfillment."
+           }
+       };
 
-            marketingROI: {
-                title: "Marketing ROI Analytics Platform",
-                subtitle: "Campaign Performance & Investment Optimization",
-                objective: "Build comprehensive marketing analytics platform to track ROI, optimize campaign performance, and maximize marketing spend effectiveness.",
-                painPoints: [
-                    "No visibility into marketing ROI",
-                    "Scattered campaign performance data",
-                    "Inability to optimize keyword spending",
-                    "Manual campaign analysis processes",
-                    "Lack of attribution modeling"
-                ],
-                solution: [
-                    "Integrated multi-channel marketing data",
-                    "Built ROI calculation and attribution models",
-                    "Created keyword performance optimization system",
-                    "Developed campaign effectiveness scoring",
-                    "Implemented automated spend optimization recommendations"
-                ],
-                process: [
-                    "Marketing data source integration",
-                    "ROI model development and testing",
-                    "Campaign tracking implementation",
-                    "Performance dashboard creation",
-                    "Optimization algorithm deployment"
-                ],
-                outcomes:[
-{ label: "Marketing ROI", value: "40% Increase" },
-{ label: "Campaign Efficiency", value: "35% Better" },
-{ label: "Cost per Acquisition", value: "25% Reduction" },
-{ label: "Attribution Accuracy", value: "90%" }
-],
-technologies: ["Power BI", "Marketing Analytics", "ROI Modeling", "Attribution Analysis", "Automation", "DAX"],
-impact: "Optimized marketing investments resulting in 40% ROI improvement, 25% reduction in customer acquisition costs, and data-driven campaign optimization across all channels."
-},
-        processAutomation: {
-            title: "Business Process Automation Framework",
-            subtitle: "End-to-End Workflow Automation Solution",
-            objective: "Design and implement comprehensive automation framework to eliminate manual processes, reduce errors, and improve operational efficiency across business functions.",
-            painPoints: [
-                "40+ hours weekly spent on manual reporting",
-                "High error rates in manual data entry",
-                "Delayed decision-making due to slow processes",
-                "Resource inefficiency in repetitive tasks",
-                "Lack of standardized workflows"
-            ],
-            solution: [
-                "Designed automated ETL pipelines for data processing",
-                "Implemented Power Automate workflows",
-                "Created self-service BI capabilities",
-                "Built automated report generation and distribution",
-                "Established data quality monitoring systems"
-            ],
-            process: [
-                "Process mapping and bottleneck identification",
-                "Automation framework design",
-                "Tool selection and integration",
-                "Workflow development and testing",
-                "Change management and training"
-            ],
-            outcomes: [
-                { label: "Manual Work Reduction", value: "40%" },
-                { label: "Error Rate Decrease", value: "85%" },
-                { label: "Process Speed", value: "5x Faster" },
-                { label: "Resource Efficiency", value: "60% Better" }
-            ],
-            technologies: ["Power BI", "Power Automate", "ETL", "Workflow Design", "Data Quality", "Process Mining"],
-            impact: "Revolutionized business operations by reducing manual work by 40%, eliminating 85% of process errors, and enabling teams to focus on strategic initiatives rather than routine tasks."
-        }
-    };
+       function openModal(projectId) {
+           var project = projects[projectId];
+           var modal = document.getElementById('projectModal');
+           var modalTitle = document.getElementById('modalTitle');
+           var modalSubtitle = document.getElementById('modalSubtitle');
+           var modalBody = document.getElementById('modalBody');
 
-    // Modal functionality
-    function openModal(projectId) {
-        const project = projects[projectId];
-        const modal = document.getElementById('projectModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalSubtitle = document.getElementById('modalSubtitle');
-        const modalBody = document.getElementById('modalBody');
+           modalTitle.textContent = project.title;
+           modalSubtitle.textContent = project.subtitle;
 
-        modalTitle.textContent = project.title;
-        modalSubtitle.textContent = project.subtitle;
+           var painPointsHTML = project.painPoints.map(function(point) {
+               return '<li style="margin-bottom: 0.5rem; padding-left: 1rem; position: relative;"><span style="position: absolute; left: 0; color: #f39c12;">•</span>' + point + '</li>';
+           }).join('');
 
-        modalBody.innerHTML = `
-            <div style="margin-bottom: 2rem;">
-                <h3 style="color: #2c3e50; margin-bottom: 1rem;">🎯 Project Objective</h3>
-                <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">${project.objective}</p>
-            </div>
+           var solutionHTML = project.solution.map(function(point) {
+               return '<li style="margin-bottom: 0.5rem; padding-left: 1rem; position: relative;"><span style="position: absolute; left: 0; color: #2ecc71;">•</span>' + point + '</li>';
+           }).join('');
 
-            <div class="problem-solution-grid">
-                <div class="problem-box">
-                    <h3 style="color: #f39c12; margin-bottom: 1rem;">⚠️ Pain Points</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        ${project.painPoints.map(point => `<li style="margin-bottom: 0.5rem; padding-left: 1rem; position: relative;"><span style="position: absolute; left: 0; color: #f39c12;">•</span>${point}</li>`).join('')}
-                    </ul>
-                </div>
-                
-                <div class="solution-box">
-                    <h3 style="color: #2ecc71; margin-bottom: 1rem;">✅ Solutions Implemented</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        ${project.solution.map(point => `<li style="margin-bottom: 0.5rem; padding-left: 1rem; position: relative;"><span style="position: absolute; left: 0; color: #2ecc71;">•</span>${point}</li>`).join('')}
-                    </ul>
-                </div>
-            </div>
+           var processHTML = project.process.map(function(step, index) {
+               return '<div class="step-box"><div class="step-number">' + (index + 1) + '</div><p style="font-size: 0.9rem; font-weight: 500;">' + step + '</p></div>';
+           }).join('');
 
-            <div style="margin: 2rem 0;">
-                <h3 style="color: #2c3e50; margin-bottom: 1rem;">🔄 Implementation Process</h3>
-                <div class="process-steps">
-                    ${project.process.map((step, index) => `
-                        <div class="step-box">
-                            <div class="step-number">${index + 1}</div>
-                            <p style="font-size: 0.9rem; font-weight: 500;">${step}</p>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
+           var outcomesHTML = project.outcomes.map(function(outcome) {
+               return '<div class="metric-box"><div class="metric-value">' + outcome.value + '</div><div style="font-size: 0.9rem;">' + outcome.label + '</div></div>';
+           }).join('');
 
-            <div style="margin: 2rem 0;">
-                <h3 style="color: #2c3e50; margin-bottom: 1rem;">📊 Key Outcomes & Metrics</h3>
-                <div class="outcome-metrics">
-                    ${project.outcomes.map(outcome => `
-                        <div class="metric-box">
-                            <div class="metric-value">${outcome.value}</div>
-                            <div style="font-size: 0.9rem;">${outcome.label}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
+           var techHTML = project.technologies.map(function(tech) {
+               return '<span style="background: linear-gradient(45deg, #3498db, #2ecc71); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">' + tech + '</span>';
+           }).join('');
 
-            <div style="margin: 2rem 0;">
-                <h3 style="color: #2c3e50; margin-bottom: 1rem;">🛠️ Technologies Used</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                    ${project.technologies.map(tech => `<span style="background: linear-gradient(45deg, #3498db, #2ecc71); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">${tech}</span>`).join('')}
-                </div>
-            </div>
+           modalBody.innerHTML = '<div style="margin-bottom: 2rem;"><h3 style="color: #2c3e50; margin-bottom: 1rem;">🎯 Project Objective</h3><p style="font-size: 1.1rem; line-height: 1.6; color: #555;">' + project.objective + '</p></div><div class="problem-solution-grid"><div class="problem-box"><h3 style="color: #f39c12; margin-bottom: 1rem;">⚠️ Business Challenges</h3><ul style="list-style: none; padding: 0;">' + painPointsHTML + '</ul></div><div class="solution-box"><h3 style="color: #2ecc71; margin-bottom: 1rem;">✅ Solutions Implemented</h3><ul style="list-style: none; padding: 0;">' + solutionHTML + '</ul></div></div><div style="margin: 2rem 0;"><h3 style="color: #2c3e50; margin-bottom: 1rem;">🔄 Implementation Process</h3><div class="process-steps">' + processHTML + '</div></div><div style="margin: 2rem 0;"><h3 style="color: #2c3e50; margin-bottom: 1rem;">📊 Key Outcomes & Metrics</h3><div class="outcome-metrics">' + outcomesHTML + '</div></div><div style="margin: 2rem 0;"><h3 style="color: #2c3e50; margin-bottom: 1rem;">🛠️ Technologies Used</h3><div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">' + techHTML + '</div></div><div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #3498db;"><h3 style="color: #2c3e50; margin-bottom: 1rem;">🚀 Business Impact</h3><p style="font-size: 1.1rem; line-height: 1.6; color: #555; font-weight: 500;">' + project.impact + '</p></div>';
 
-            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #3498db;">
-                <h3 style="color: #2c3e50; margin-bottom: 1rem;">🚀 Business Impact</h3>
-                <p style="font-size: 1.1rem; line-height: 1.6; color: #555; font-weight: 500;">${project.impact}</p>
-            </div>
-        `;
+           modal.style.display = 'block';
+           document.body.style.overflow = 'hidden';
+       }
 
-        modal.style.display = 'block';
-    }
+       function closeModal() {
+           document.getElementById('projectModal').style.display = 'none';
+           document.body.style.overflow = 'auto';
+       }
 
-    // Close modal functionality
-    document.querySelector('.close').onclick = function() {
-        document.getElementById('projectModal').style.display = 'none';
-    }
+       document.querySelector('.close').onclick = closeModal;
 
-    window.onclick = function(event) {
-        const modal = document.getElementById('projectModal');
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
+       window.onclick = function(event) {
+           var modal = document.getElementById('projectModal');
+           if (event.target == modal) {
+               closeModal();
+           }
+       }
 
-    // Smooth scrolling for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
+       document.addEventListener('keydown', function(e) {
+           if (e.key === 'Escape') {
+               var modal = document.getElementById('projectModal');
+               if (modal.style.display === 'block') {
+                   closeModal();
+               }
+           }
+       });
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(44, 62, 80, 0.95)';
-        } else {
-            navbar.style.background = 'rgba(44, 62, 80, 0.95)';
-        }
-    });
-</script>
+       document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+           anchor.addEventListener('click', function (e) {
+               e.preventDefault();
+               var target = document.querySelector(this.getAttribute('href'));
+               if (target) {
+                   target.scrollIntoView({
+                       behavior: 'smooth',
+                       block: 'start'
+                   });
+               }
+           });
+       });
+
+       window.addEventListener('scroll', function() {
+           var navbar = document.querySelector('.navbar');
+           if (window.pageYOffset > 100) {
+               navbar.style.background = 'rgba(44, 62, 80, 0.98)';
+           } else {
+               navbar.style.background = 'rgba(44, 62, 80, 0.95)';
+           }
+       });
+   </script>
 </body>
 </html>
